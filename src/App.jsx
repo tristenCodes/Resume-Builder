@@ -1,20 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import PersonalInfoForm from './components/editor/PersonalInfoForm'
-import ExperienceInfoForm from './components/editor/ExperienceInfoForm'
-import EducationInfoForm from './components/editor/EducationInfoForm'
+import './App.css';
+import './styles/input-forms.less'
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import PersonalInfoForm from './components/editor/PersonalInfoForm';
+import ExperienceInfoForm from './components/editor/ExperienceInfoForm';
+import EducationInfoForm from './components/editor/EducationInfoForm';
+
 
 function App() {
-
   return (
-    <>
-    <PersonalInfoForm />
-    <ExperienceInfoForm />
-    <EducationInfoForm />
-    </>
-  )
+    <div className='main__container'>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <div className='input--forms'>
+        <PersonalInfoForm />
+        <ExperienceInfoForm />
+        <EducationInfoForm />
+        </div>
+        <div className='resume'>
+          Resume
+        </div>
+      </LocalizationProvider>
+    </div>
+  );
 }
 
-export default App
+export default App;

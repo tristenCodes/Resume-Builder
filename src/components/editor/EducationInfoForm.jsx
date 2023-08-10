@@ -1,14 +1,33 @@
+import { Grid, TextField, Button } from '@mui/material';
+import { DatePicker } from '@mui/x-date-pickers';
+
 export default function EducationInfoForm() {
   return (
-    <div className="input--experience">
-      <label>University/Institution</label>
-      <input type="text" placeholder="Hustler's University"></input>
-      <label>Program/Degree/Course</label>
-      <input type="text" placeholder="Full-Stack Javascript"></input>
-      <label>Graduation Date</label>
-      <input type="date"></input>
-      <label>GPA</label>
-      <input type="number" placeholder={1.1} step={0.1} min={0} max={4}></input>
-    </div>
+    // <div className="input--education">
+    <>
+      <Grid container rowGap={3} className="inputcard inputcard__education">
+        <h1 className="inputcard__title">Education</h1>
+        <Grid item xs={12}>
+          <TextField label="University/Institution" fullWidth />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField label="Program/Degree/Course" fullWidth />
+        </Grid>
+        <Grid item xs={12}>
+          <DatePicker
+            label="Graduation Date"
+            slotProps={{ textField: { fullWidth: true } }}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField label="GPA" type="number" fullWidth />
+        </Grid>
+        <Grid item xs={12}>
+          <Button fullWidth variant="contained">
+            Add Education
+          </Button>
+        </Grid>
+      </Grid>
+    </>
   );
 }

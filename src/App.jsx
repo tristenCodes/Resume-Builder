@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import PersonalInfoForm from './components/editor/PersonalInfoForm'
 import ExperienceInfoForm from './components/editor/ExperienceInfoForm'
+import EducationInfoForm from './components/editor/EducationInfoForm'
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
     <>
     <PersonalInfoForm />
     <ExperienceInfoForm />
+    <EducationInfoForm />
     </>
   )
 }

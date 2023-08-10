@@ -8,7 +8,7 @@ export default function PersonalInfoForm() {
             <input placeholder="Doe"></input>
             <label>Email</label>
             <input placeholder="masterprogrammer99@github.com"></input>
-            <label>Title</label>
+            <label>Professional Title</label>
             <input placeholder="Master Programmer"></input>
             <label>Summary about yourself</label>
             <textarea cols="30" rows="10"></textarea>

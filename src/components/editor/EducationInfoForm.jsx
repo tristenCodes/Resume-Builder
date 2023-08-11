@@ -1,10 +1,9 @@
-import { Grid, TextField, Button } from '@mui/material';
+import { Grid, TextField, Button, Paper } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 
 export default function EducationInfoForm() {
   return (
-    // <div className="input--education">
-    <>
+    <Paper elevation={0} sx={{ paddingInline: '40px', backgroundColor: '#e5e7eb'}} variant='outlined'>
       <Grid container rowGap={3} className="inputcard inputcard__education">
         <h1 className="inputcard__title">Education</h1>
         <Grid item xs={12}>
@@ -28,6 +27,6 @@ export default function EducationInfoForm() {
           </Button>
         </Grid>
       </Grid>
-    </>
+    </Paper>
   );
 }

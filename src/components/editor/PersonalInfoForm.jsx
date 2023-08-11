@@ -1,9 +1,14 @@
-import { Grid, TextField } from '@mui/material';
+import { Grid, TextField, Paper } from '@mui/material';
 
 export default function PersonalInfoForm() {
   return (
-    <>
-      <Grid container rowGap={3} columnSpacing={2} className="inputcard inputcard__personal">
+    <Paper elevation={0} sx={{ paddingInline: '40px' }} variant='outlined'>
+      <Grid
+        container
+        rowGap={3}
+        columnSpacing={2}
+        className="inputcard inputcard__personal"
+      >
         <h1 className="inputcard__title">Personal Information</h1>
         <Grid item xs={6}>
           <TextField fullWidth label="First Name" />
@@ -26,6 +31,6 @@ export default function PersonalInfoForm() {
           />
         </Grid>
       </Grid>
-    </>
+    </Paper>
   );
 }

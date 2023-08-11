@@ -25,3 +25,6 @@ dist-ssr
 
 # Additional files
 /ResumePropStructure.txt
+
+# Local Netlify folder
+.netlify

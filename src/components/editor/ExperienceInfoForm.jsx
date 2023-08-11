@@ -4,6 +4,7 @@ import {
   Button,
   FormControlLabel,
   Grid,
+  Paper,
 } from '@mui/material';
 import { useState } from 'react';
 import { DatePicker } from '@mui/x-date-pickers';
@@ -67,9 +68,9 @@ export default function ExperienceInfoForm() {
   }
 
   return (
-    <>
+    <Paper elevation={0} sx={{paddingInline: '40px'}} variant='outlined'>
       <Grid container rowGap={3} className="inputcard inputcard__experience">
-      <h1 className="inputcard__title">Work Experience</h1>
+        <h1 className="inputcard__title">Work Experience</h1>
         <Grid item xs={12}>
           <TextField fullWidth label="Job Title" />
         </Grid>
@@ -87,6 +88,6 @@ export default function ExperienceInfoForm() {
           </Button>
         </Grid>
       </Grid>
-    </>
+    </Paper>
   );
 }

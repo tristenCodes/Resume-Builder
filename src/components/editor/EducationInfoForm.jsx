@@ -3,7 +3,7 @@ import { DatePicker } from '@mui/x-date-pickers';
 
 export default function EducationInfoForm() {
   return (
-    <Paper elevation={0} sx={{ paddingInline: '40px', backgroundColor: '#e5e7eb'}} variant='outlined'>
+    <Paper elevation={0} sx={{ paddingInline: '40px' }} variant="outlined">
       <Grid container rowGap={3} className="inputcard inputcard__education">
         <h1 className="inputcard__title">Education</h1>
         <Grid item xs={12}>

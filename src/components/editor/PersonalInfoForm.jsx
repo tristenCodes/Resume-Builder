@@ -1,8 +1,8 @@
-import { Grid, TextField, Paper } from '@mui/material';
+import { Grid, TextField, Paper } from '@mui/material'
 
-export default function PersonalInfoForm() {
+export default function PersonalInfoForm({ handleTyping }) {
   return (
-    <Paper elevation={0} sx={{ paddingInline: '40px' }} variant='outlined'>
+    <Paper elevation={0} sx={{ paddingInline: '40px' }} variant="outlined">
       <Grid
         container
         rowGap={3}
@@ -11,16 +11,21 @@ export default function PersonalInfoForm() {
       >
         <h1 className="inputcard__title">Personal Information</h1>
         <Grid item xs={6}>
-          <TextField fullWidth label="First Name" />
+          <TextField
+            fullWidth
+            label="First Name"
+            name="firstName"
+            onChange={handleTyping}
+          />
         </Grid>
         <Grid item xs={6}>
-          <TextField fullWidth label="Last Name" />
+          <TextField fullWidth label="Last Name" name="lastName" onChange={handleTyping}/>
         </Grid>
         <Grid item xs={6}>
-          <TextField fullWidth type="email" label="Email" />
+          <TextField fullWidth type="email" label="Email" name='email' onChange={handleTyping}/>
         </Grid>
         <Grid item xs={6}>
-          <TextField fullWidth label="Professional Title" />
+          <TextField fullWidth label="Professional Title" name='title' onChange={handleTyping}/>
         </Grid>
         <Grid item xs={12}>
           <TextField
@@ -28,9 +33,11 @@ export default function PersonalInfoForm() {
             multiline
             maxRows={5}
             label="Summary about yourself"
+            name='summary'
+            onChange={handleTyping}
           />
         </Grid>
       </Grid>
     </Paper>
-  );
+  )
 }

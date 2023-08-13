@@ -7,18 +7,7 @@ export default {
     summary: '',
   },
 
-  WorkExperience: {
-    
-    job1: {
-      jobTitle: '',
-      company: '',
-      startDate: '',
-      endDate: '',
-      ongoing: 'false',
-      state: ''
-    }
-
-  },
+  WorkExperience: {},
 
   EducationInformation: {},
 }

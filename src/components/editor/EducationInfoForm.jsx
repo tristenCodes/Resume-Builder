@@ -2,6 +2,10 @@ import { Grid, TextField, Button, Paper } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 
 export default function EducationInfoForm() {
+
+  // create a state for the number of jobs (app-level), when someone selects add experience
+  // it should add to the number of jobs, as well as update the preview and form to include an editable drop-down
+
   return (
     <Paper elevation={0} sx={{ paddingInline: '40px' }} variant="outlined">
       <Grid container rowGap={3} className="inputcard inputcard__education">

@@ -5,28 +5,36 @@ import {
   FormControlLabel,
   Grid,
   Paper,
-} from '@mui/material';
-import { useState } from 'react';
-import { DatePicker } from '@mui/x-date-pickers';
+} from '@mui/material'
+import { useState } from 'react'
+import { DatePicker } from '@mui/x-date-pickers'
 
-export default function ExperienceInfoForm() {
-  const [endYear, setEndYear] = useState(false);
+export default function ExperienceInfoForm({ handleSubmitExperience }) {
+  const [currentPosition, setCurrentPosition] = useState(false)
 
   function handleSwitchChange(e) {
-    e.target.checked ? setEndYear(true) : setEndYear(false);
+    e.target.checked ? setCurrentPosition(true) : setCurrentPosition(false)
   }
 
   function JobDates() {
-    if (endYear === false) {
+    if (currentPosition === false) {
       return (
         <>
           <Grid item xs={6}>
             <span>Start Date</span>
-            <DatePicker slotProps={{ textField: { fullWidth: true } }} />
+            <DatePicker
+              slotProps={{ textField: { fullWidth: true } }}
+              name="startDate"
+              required
+            />
           </Grid>
           <Grid item xs={6}>
             <span>End Date</span>
-            <DatePicker slotProps={{ textField: { fullWidth: true } }} />
+            <DatePicker
+              slotProps={{ textField: { fullWidth: true } }}
+              name="endDate"
+              required
+            />
           </Grid>
           <Grid item xs={6}>
             <FormControlLabel
@@ -39,16 +47,21 @@ export default function ExperienceInfoForm() {
                 margin: 0,
                 height: '100%',
               }}
+              name="current"
             />
           </Grid>
         </>
-      );
+      )
     }
     return (
       <>
         <Grid item xs={12}>
           <span>Start Date</span>
-          <DatePicker slotProps={{ textField: { fullWidth: true } }} />
+          <DatePicker
+            slotProps={{ textField: { fullWidth: true } }}
+            name="startDate"
+            required
+          />
         </Grid>
         <Grid item xs={6}>
           <FormControlLabel
@@ -61,33 +74,49 @@ export default function ExperienceInfoForm() {
               margin: 0,
               height: '100%',
             }}
+            name="current"
           />
         </Grid>
       </>
-    );
+    )
   }
 
   return (
-    <Paper elevation={0} sx={{paddingInline: '40px'}} variant='outlined'>
-      <Grid container rowGap={3} className="inputcard inputcard__experience">
-        <h1 className="inputcard__title">Work Experience</h1>
-        <Grid item xs={12}>
-          <TextField fullWidth label="Job Title" />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField fullWidth label="Company" />
-        </Grid>
-        <JobDates />
+    <form id="experienceForm">
+      <Paper elevation={0} sx={{ paddingInline: '40px' }} variant="outlined">
+        <Grid container rowGap={3} className="inputcard inputcard__experience">
+          <h1 className="inputcard__title">Work Experience</h1>
+          <Grid item xs={12}>
+            <TextField fullWidth label="Job Title" name="jobTitle" required />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField fullWidth label="Company" name="company" required />
+          </Grid>
+          <JobDates />
 
-        <Grid item xs={6}>
-          <TextField fullWidth label="State" />
+          <Grid item xs={6}>
+            <TextField fullWidth label="State" name="state" required />
+          </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                multiline
+                maxRows={5}
+                label="Summary of job responsibilities"
+                name="jobSummary"
+              />
+            </Grid>
+          <Grid item xs={12}>
+            <Button
+              fullWidth
+              variant="contained"
+              onClick={handleSubmitExperience}
+            >
+              Add Experience
+            </Button>
+          </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <Button fullWidth variant="contained">
-            Add Experience
-          </Button>
-        </Grid>
-      </Grid>
-    </Paper>
-  );
+      </Paper>
+    </form>
+  )
 }

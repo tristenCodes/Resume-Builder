@@ -9,19 +9,48 @@ import resumeData from './Helpers/resumeDataProp'
 import ResumeHeader from './components/preview/ResumeHeader'
 import { useState } from 'react'
 import ResumeExperience from './components/preview/ResumeExperience'
+import ExperienceAccordion from './components/editor/ExperienceAccordion'
 
 // resumeData object hold all resume information
 
 const { PersonalInformation, EducationInformation, WorkExperience } = resumeData
 
+const jobs = []
+WorkExperience.jobs = jobs
+
 function App() {
-  WorkExperience.jobTitle = 'test'
-  const [header, setHeader] = useState(EducationInformation)
+  const [header, setHeader] = useState(PersonalInformation)
   const [experience, setExperience] = useState(WorkExperience)
 
   const handlePersonalFormTyping = (event) => {
     PersonalInformation[event.target.name] = event.target.value
-    setHeader({...PersonalInformation})
+    setHeader({ ...PersonalInformation })
+  }
+
+  const handleSubmitExperience = (event) => {
+    // create a job object and add it to WorkExperience
+    const experienceForm = document.getElementById('experienceForm').elements
+    let endDate
+    experienceForm[7].value === 'on'
+      ? (endDate = null)
+      : (endDate = experienceForm[7].value)
+
+    jobs.push({
+      jobTitle: experienceForm.jobTitle.value,
+      company: experienceForm.company.value,
+      current: experienceForm.current.checked,
+      state: experienceForm.state.value,
+      startDate: experienceForm[4].value,
+      endDate: endDate,
+      jobSummary: experienceForm.jobSummary.value
+    })
+
+    // add this job to WorkExperience as job
+    console.log(WorkExperience)
+    document.getElementById('experienceForm').reset()
+    experienceForm[4].value = null
+    experienceForm[7].value = null
+    setExperience({ ...WorkExperience })
   }
 
   return (
@@ -32,12 +61,19 @@ function App() {
             handleTyping={handlePersonalFormTyping}
             personalData={PersonalInformation}
           />
-          <ExperienceInfoForm />
+
+          {WorkExperience.jobs.map((job) => {
+            return <ExperienceAccordion job={job} key={job.Title}/>
+          })}
+          <ExperienceInfoForm
+            handleSubmitExperience={handleSubmitExperience}
+            experience={experience}
+          />
           <EducationInfoForm />
         </div>
         <div className="resume">
           <ResumeHeader personalInfo={header} />
-          <ResumeExperience experience={WorkExperience}/>
+          <ResumeExperience experience={WorkExperience} />
         </div>
       </LocalizationProvider>
     </div>

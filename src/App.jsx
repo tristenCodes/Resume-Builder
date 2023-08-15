@@ -8,7 +8,7 @@ import EducationInfoForm from './components/editor/EducationInfoForm'
 import resumeData from './Helpers/resumeDataProp'
 import ResumeHeader from './components/preview/ResumeHeader'
 import { useState } from 'react'
-
+import { v4 as uuidv4 } from 'uuid'
 import ResumeExperience from './components/preview/ResumeExperience'
 import ExperienceAccordion from './components/editor/ExperienceAccordion'
 
@@ -44,6 +44,7 @@ function App() {
       startDate: experienceForm[4].value,
       endDate: endDate,
       jobSummary: experienceForm.jobSummary.value,
+      key: uuidv4()
     })
 
     // add this job to WorkExperience as job
@@ -69,6 +70,7 @@ function App() {
                 WorkExperience={WorkExperience}
                 job={job}
                 setExperience={setExperience}
+                key={job.key}
               />
             )
           })}

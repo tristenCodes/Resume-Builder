@@ -15,6 +15,7 @@ export default function ExperienceAccordion({
   job,
   setExperience,
 }) {
+  
   return (
     <Accordion>
       <AccordionSummary expandIcon={<ArrowDropDownIcon />}>
@@ -66,10 +67,18 @@ export default function ExperienceAccordion({
               }}
             />
           </Grid>
+          <Grid item xs={12}>
+            <TextField
+              label="Summary of responsibilities"
+              defaultValue={job.jobSummary}
+              onChange={(e) => {
+                job.jobSummary = e.target.value
+                setExperience({ ...WorkExperience })
+              }}
+              fullWidth
+            />
+          </Grid>
         </Grid>
-        <span>{job.jobTitle}</span>
-        {job.startDate} - {job.endDate}
-        <p>{job.jobSummary}</p>
         <DeleteForeverIcon />
       </AccordionDetails>
     </Accordion>

@@ -5,14 +5,14 @@ export default function ResumeExperience({ experience }) {
     <>
       {experience.jobs.map((job) => {
         return (
-          <>
+          <div key={job.key}>
             <span>{job.jobTitle}</span>
             <span>{job.company}</span>
             <span>
               {job.startDate} - {job.endDate}
             </span>
             <p>{job.jobSummary}</p>
-          </>
+          </div>
         )
       })}
     </>

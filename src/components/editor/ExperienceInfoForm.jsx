@@ -25,7 +25,6 @@ export default function ExperienceInfoForm({ handleSubmitExperience }) {
             <DatePicker
               slotProps={{ textField: { fullWidth: true } }}
               name="startDate"
-              required
             />
           </Grid>
           <Grid item xs={6}>
@@ -33,7 +32,6 @@ export default function ExperienceInfoForm({ handleSubmitExperience }) {
             <DatePicker
               slotProps={{ textField: { fullWidth: true } }}
               name="endDate"
-              required
             />
           </Grid>
           <Grid item xs={6}>
@@ -60,7 +58,6 @@ export default function ExperienceInfoForm({ handleSubmitExperience }) {
           <DatePicker
             slotProps={{ textField: { fullWidth: true } }}
             name="startDate"
-            required
           />
         </Grid>
         <Grid item xs={6}>

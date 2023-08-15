@@ -8,6 +8,7 @@ import EducationInfoForm from './components/editor/EducationInfoForm'
 import resumeData from './Helpers/resumeDataProp'
 import ResumeHeader from './components/preview/ResumeHeader'
 import { useState } from 'react'
+
 import ResumeExperience from './components/preview/ResumeExperience'
 import ExperienceAccordion from './components/editor/ExperienceAccordion'
 
@@ -42,7 +43,7 @@ function App() {
       state: experienceForm.state.value,
       startDate: experienceForm[4].value,
       endDate: endDate,
-      jobSummary: experienceForm.jobSummary.value
+      jobSummary: experienceForm.jobSummary.value,
     })
 
     // add this job to WorkExperience as job
@@ -63,8 +64,15 @@ function App() {
           />
 
           {WorkExperience.jobs.map((job) => {
-            return <ExperienceAccordion job={job} key={job.Title}/>
+            return (
+              <ExperienceAccordion
+                WorkExperience={WorkExperience}
+                job={job}
+                setExperience={setExperience}
+              />
+            )
           })}
+
           <ExperienceInfoForm
             handleSubmitExperience={handleSubmitExperience}
             experience={experience}

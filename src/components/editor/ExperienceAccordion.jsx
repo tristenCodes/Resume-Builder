@@ -79,7 +79,15 @@ export default function ExperienceAccordion({
             />
           </Grid>
         </Grid>
-        <DeleteForeverIcon />
+        <DeleteForeverIcon onClick={() => {
+          for (let i = 0; i < WorkExperience.jobs.length; i++) {
+            if (WorkExperience.jobs[i] == job) {
+              WorkExperience.jobs.splice(i, 1)
+              setExperience({...WorkExperience})
+            }
+          }
+      }}
+        />
       </AccordionDetails>
     </Accordion>
   )

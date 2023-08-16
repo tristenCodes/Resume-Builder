@@ -1,10 +1,20 @@
 import { Grid, TextField, Button, Paper } from '@mui/material'
 import { DatePicker } from '@mui/x-date-pickers'
+import { useState } from 'react'
 
 export default function EducationInfoForm({ handleSubmitEducation }) {
 
   // create a state for the number of jobs (app-level), when someone selects add experience
   // it should add to the number of jobs, as well as update the preview and form to include an editable drop-down
+const [dateValue, setDateValue] = useState(null)
+
+  const resetDateValue = () => {
+    setDateValue(null)
+  }
+
+  const setDate = (val) => {
+    setDateValue(val)
+  }
 
   return (
     <form id='educationForm'>
@@ -22,15 +32,20 @@ export default function EducationInfoForm({ handleSubmitEducation }) {
         <Grid item xs={12}>
           <DatePicker
             label="Graduation Date"
-            name='graduation'
+            name='graduationDate'
             slotProps={{ textField: { fullWidth: true } }}
+            value={dateValue}
+            onChange={setDate}
           />
         </Grid>
         <Grid item xs={12}>
           <TextField label="GPA" type="number" fullWidth name='gpa' />
         </Grid>
         <Grid item xs={12}>
-          <Button fullWidth variant="contained" onClick={handleSubmitEducation}>
+          <Button fullWidth variant="contained" onClick={() => {
+            handleSubmitEducation()
+            resetDateValue()
+          }}>
             Add Education
           </Button>
         </Grid>

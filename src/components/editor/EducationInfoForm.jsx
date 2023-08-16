@@ -16,6 +16,7 @@ const [dateValue, setDateValue] = useState(null)
     setDateValue(val)
   }
 
+
   return (
     <form id='educationForm'>
     <Paper elevation={0} sx={{ paddingInline: '40px' }} variant="outlined">
@@ -39,7 +40,7 @@ const [dateValue, setDateValue] = useState(null)
           />
         </Grid>
         <Grid item xs={12}>
-          <TextField label="GPA" type="number" fullWidth name='gpa' />
+          <TextField label="GPA" type="number" fullWidth name='gpa'/>
         </Grid>
         <Grid item xs={12}>
           <Button fullWidth variant="contained" onClick={() => {

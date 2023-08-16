@@ -79,6 +79,7 @@ export default function ExperienceAccordion({
             />
           </Grid>
         </Grid>
+        <Grid item xs={12} className='flex justify-center pt-6'>
         <DeleteForeverIcon onClick={() => {
           for (let i = 0; i < WorkExperience.jobs.length; i++) {
             if (WorkExperience.jobs[i] == job) {
@@ -87,8 +88,9 @@ export default function ExperienceAccordion({
             }
           }
       }}
-      className='relative left-0'
+      className='cursor-pointer'
         />
+        </Grid>
       </AccordionDetails>
     </Accordion>
   )

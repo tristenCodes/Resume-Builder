@@ -94,7 +94,7 @@ export default function ExperienceInfoForm({ handleSubmitExperience }) {
           <JobDates />
 
           <Grid item xs={6}>
-            <TextField fullWidth label="State" name="state" required />
+            <TextField fullWidth label="Location" name="location" required />
           </Grid>
           <Grid item xs={12}>
             <TextField

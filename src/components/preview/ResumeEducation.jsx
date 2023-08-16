@@ -13,8 +13,11 @@ export default function ResumeExperience({ education }) {
             <span className="col-start-1 col-end-4 font-semibold">
               {university.program}
             </span>
-            <span className="col-start-10 col-end-13 row-start-1 row-end-3 flex justify-end self-center">
+            <span className="col-start-10 col-end-13 row-start-1 row-end-2 flex justify-end self-center font-semibold">
               {university.graduationDate}
+            </span>
+            <span className="col-start-10 col-end-13 row-start-2 row-end-3 flex justify-end self-center font-semibold">
+              {university.location}
             </span>
             <span className="row-start-3">
               GPA: {university.gpa}

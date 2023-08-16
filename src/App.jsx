@@ -46,7 +46,7 @@ function App() {
       jobTitle: experienceForm.jobTitle.value,
       company: experienceForm.company.value,
       current: experienceForm.current.checked,
-      state: experienceForm.state.value,
+      location: experienceForm.location.value,
       startDate: experienceForm[4].value,
       endDate: endDate,
       jobSummary: experienceForm.jobSummary.value,
@@ -68,10 +68,13 @@ function App() {
     education.push({
       university: educationForm.university.value,
       program: educationForm.program.value,
-      graduationDate: educationForm[4].value,
+      graduationDate: educationForm[6].value,
       gpa: educationForm.gpa.value,
+      location: educationForm.location.value,
       key: uuidv4(),
     })
+
+    console.log(educationForm)
 
     document.getElementById('educationForm').reset()
 
@@ -119,7 +122,7 @@ function App() {
             <h2 className="text-2xl font-semibold my-6">Experience</h2>
             <ResumeExperience experience={WorkExperience} />
             <h2 className="text-2xl font-semibold my-6">Education</h2>
-            <ResumeEducation education={EducationInformation}/>
+            <ResumeEducation education={EducationInformation} />
           </div>
         </div>
       </LocalizationProvider>

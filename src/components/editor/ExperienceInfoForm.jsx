@@ -81,8 +81,10 @@ export default function ExperienceInfoForm({ handleSubmitExperience }) {
   return (
     <form id="experienceForm">
       <Paper elevation={0} sx={{ paddingInline: '40px' }} variant="outlined">
-        <Grid container rowGap={3} className="inputcard inputcard__experience">
-          <h1 className="inputcard__title">Work Experience</h1>
+        <Grid container rowGap={3} className='py-10'>
+          <Grid item xs={12} className='text-center'>
+            <h1 className="text-3xl">Work Experience</h1>
+          </Grid>
           <Grid item xs={12}>
             <TextField fullWidth label="Job Title" name="jobTitle" required />
           </Grid>
@@ -94,15 +96,15 @@ export default function ExperienceInfoForm({ handleSubmitExperience }) {
           <Grid item xs={6}>
             <TextField fullWidth label="State" name="state" required />
           </Grid>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                multiline
-                maxRows={5}
-                label="Summary of job responsibilities"
-                name="jobSummary"
-              />
-            </Grid>
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              multiline
+              maxRows={5}
+              label="Summary of job responsibilities"
+              name="jobSummary"
+            />
+          </Grid>
           <Grid item xs={12}>
             <Button
               fullWidth

@@ -19,7 +19,7 @@ export default function ExperienceAccordion({
   return (
     <Accordion>
       <AccordionSummary expandIcon={<ArrowDropDownIcon />}>
-        <span>{job.company}</span>
+        <span className='px-6'>{job.company}</span>
       </AccordionSummary>
       <AccordionDetails>
         <Grid container rowGap={3} sx={{ paddingInline: '20px' }}>
@@ -87,6 +87,7 @@ export default function ExperienceAccordion({
             }
           }
       }}
+      className='relative left-0'
         />
       </AccordionDetails>
     </Accordion>

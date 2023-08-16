@@ -11,6 +11,7 @@ import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import ResumeExperience from './components/preview/ResumeExperience'
 import ExperienceAccordion from './components/editor/ExperienceAccordion'
+import { Divider } from '@mui/material';
 
 // resumeData object hold all resume information
 
@@ -44,7 +45,7 @@ function App() {
       startDate: experienceForm[4].value,
       endDate: endDate,
       jobSummary: experienceForm.jobSummary.value,
-      key: uuidv4()
+      key: uuidv4(),
     })
 
     // add this job to WorkExperience as job
@@ -58,22 +59,21 @@ function App() {
   return (
     <div className="main__container">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <div className="input--forms">
+        <div className="input--forms min-w-[550px]">
           <PersonalInfoForm
             handleTyping={handlePersonalFormTyping}
             personalData={PersonalInformation}
           />
-
           {WorkExperience.jobs.map((job) => {
             return (
               <ExperienceAccordion
-                WorkExperience={WorkExperience}
-                job={job}
-                setExperience={setExperience}
-                key={job.key}
+              WorkExperience={WorkExperience}
+              job={job}
+              setExperience={setExperience}
+              key={job.key}
               />
-            )
-          })}
+              )
+            })}
 
           <ExperienceInfoForm
             handleSubmitExperience={handleSubmitExperience}
@@ -81,9 +81,13 @@ function App() {
           />
           <EducationInfoForm />
         </div>
-        <div className="resume">
-          <ResumeHeader personalInfo={header} />
-          <ResumeExperience experience={WorkExperience} />
+        <div className="resume--half bg-zinc-400">
+          <div className="resume bg-white h-full w-11/12 min-w-[700px] min-h-[800px] max-w-5xl m-auto my-20">
+            <ResumeHeader personalInfo={header} />
+            <Divider />
+            <h2>Experience</h2>
+            <ResumeExperience experience={WorkExperience} />
+          </div>
         </div>
       </LocalizationProvider>
     </div>

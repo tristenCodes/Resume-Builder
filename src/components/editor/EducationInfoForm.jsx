@@ -8,8 +8,10 @@ export default function EducationInfoForm() {
 
   return (
     <Paper elevation={0} sx={{ paddingInline: '40px' }} variant="outlined">
-      <Grid container rowGap={3} className="inputcard inputcard__education">
-        <h1 className="inputcard__title">Education</h1>
+      <Grid container rowGap={3} className="text-3xl py-10">
+          <Grid item xs={12} className='text-center'>
+            <h1 className="text-3xl">Education</h1>
+          </Grid>
         <Grid item xs={12}>
           <TextField label="University/Institution" fullWidth />
         </Grid>

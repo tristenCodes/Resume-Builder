@@ -7,9 +7,12 @@ export default function PersonalInfoForm({ handleTyping }) {
         container
         rowGap={3}
         columnSpacing={2}
-        className="inputcard inputcard__personal"
+        className="py-10"
       >
-        <h1 className="inputcard__title">Personal Information</h1>
+        <Grid item xs={12} className='text-center text-3xl'>
+          <h1>Personal Information</h1>
+        </Grid>
+
         <Grid item xs={6}>
           <TextField
             fullWidth
@@ -19,13 +22,29 @@ export default function PersonalInfoForm({ handleTyping }) {
           />
         </Grid>
         <Grid item xs={6}>
-          <TextField fullWidth label="Last Name" name="lastName" onChange={handleTyping}/>
+          <TextField
+            fullWidth
+            label="Last Name"
+            name="lastName"
+            onChange={handleTyping}
+          />
         </Grid>
         <Grid item xs={6}>
-          <TextField fullWidth type="email" label="Email" name='email' onChange={handleTyping}/>
+          <TextField
+            fullWidth
+            type="email"
+            label="Email"
+            name="email"
+            onChange={handleTyping}
+          />
         </Grid>
         <Grid item xs={6}>
-          <TextField fullWidth label="Professional Title" name='title' onChange={handleTyping}/>
+          <TextField
+            fullWidth
+            label="Professional Title"
+            name="title"
+            onChange={handleTyping}
+          />
         </Grid>
         <Grid item xs={12}>
           <TextField
@@ -33,7 +52,7 @@ export default function PersonalInfoForm({ handleTyping }) {
             multiline
             maxRows={5}
             label="Summary about yourself"
-            name='summary'
+            name="summary"
             onChange={handleTyping}
           />
         </Grid>

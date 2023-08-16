@@ -2,7 +2,7 @@ export default function ResumeHeader({ personalInfo }) {
   let { firstName, lastName, email, title, summary } = personalInfo
 
   return (
-    <div className="p-6">
+    <div>
       <h1 className="text-6xl mb-2">
         {firstName} {lastName}
       </h1>

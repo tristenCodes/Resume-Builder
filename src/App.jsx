@@ -35,7 +35,6 @@ function App() {
   }
 
   const handleSubmitExperience = (event) => {
-    // create a job object and add it to WorkExperience
     const experienceForm = document.getElementById('experienceForm').elements
     let endDate
     experienceForm[7].value === 'on'
@@ -53,8 +52,6 @@ function App() {
       key: uuidv4(),
     })
 
-    // add this job to WorkExperience as job
-    console.log(WorkExperience)
     document.getElementById('experienceForm').reset()
     experienceForm[4].value = null
     experienceForm[7].value = null
@@ -62,7 +59,6 @@ function App() {
   }
 
   const handleSubmitEducation = (event) => {
-    // create a job object and add it to WorkExperience
     const educationForm = document.getElementById('educationForm').elements
 
     education.push({
